@@ -1,6 +1,7 @@
 import queryPromise from "/app/lib/mariadb.js";
 import { selectBoard } from "/app/sql/nj-board-sql.js";
 export default async function Detail({ params }) {
+  //console.log("상세페이지 parmas:", params);
   let SQL = selectBoard({ BOARD_ID: "NEXT", SEQ: params.ID });
   let rows;
   try {
@@ -8,6 +9,7 @@ export default async function Detail({ params }) {
   } catch (error) {
     console.error(error);
   }
+
   return (
     <div>
       <h4>상세페이지</h4>

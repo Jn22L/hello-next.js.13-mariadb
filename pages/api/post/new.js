@@ -10,8 +10,6 @@ export default async function handler(req, res) {
   //     req.body.complete = "N";
   //   }
   if (req.method == "POST") {
-    console.log("신규.api:", req.body.title);
-
     let TITLE = req.body.title;
     let CONTENT = req.body.content;
 

@@ -1,19 +1,16 @@
 const selectBoardList = function (param) {
-  console.log(param);
   return `
     SELECT * FROM NJ_BOARD WHERE BOARD_ID='${param.BOARD_ID}'
   `;
 };
 
 const selectBoard = function (param) {
-  console.log(param);
   return `
     SELECT * FROM NJ_BOARD WHERE BOARD_ID='${param.BOARD_ID}' AND SEQ=${param.SEQ}
   `;
 };
 
 const insertBoard = function (param) {
-  console.log(param);
   return `
     INSERT INTO NJ_BOARD(BOARD_ID, TITLE, CONTENT)
     VALUES('${param.BOARD_ID}', '${param.TITLE}', '${param.CONTENT}');    
@@ -21,7 +18,6 @@ const insertBoard = function (param) {
 };
 
 const updateBoard = function (param) {
-  console.log(param);
   return `
     UPDATE NJ_BOARD
        SET TITLE   = '${param.TITLE}'
@@ -31,7 +27,6 @@ const updateBoard = function (param) {
 };
 
 const deleteBoard = function (param) {
-  console.log(param);
   return `
     DELETE FROM NJ_BOARD WHERE SEQ = ${param.SEQ}
   `;

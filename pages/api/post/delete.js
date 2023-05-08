@@ -9,13 +9,10 @@ export default async function handler(req, res) {
   //     req.body.author = session.user.email;
   //     req.body.complete = "N";
   //   }
-  console.log("삭제 api req.body:", JSON.parse(req.body));
 
   if (req.method == "POST") {
     const param = JSON.parse(req.body);
-    console.log("삭제 param SEQ:", param.SEQ);
     let SQL = deleteBoard({ BOARD_ID: "NEXT", SEQ: param.SEQ });
-    console.log("삭제api SQL:", SQL);
     let result;
     try {
       result = await queryPromise(SQL);

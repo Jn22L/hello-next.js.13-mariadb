@@ -2,8 +2,6 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 
-export const revalidate = 0;
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {

@@ -22,7 +22,6 @@ export default async function ListItem({ rows }) {
         }, 1000);
       })
       .catch((error) => {
-        console.log("삭제실패", error);
         //alert(JSON.parse(error.message).resMsg);
       });
   }

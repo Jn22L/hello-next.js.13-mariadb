@@ -2,15 +2,11 @@ import queryPromise from "/app/lib/mariadb.js";
 import { selectBoard } from "/app/sql/nj-board-sql.js";
 
 export default async function Edit({ params }) {
-  console.log("수정params", params);
   let SQL = selectBoard({ BOARD_ID: "NEXT", SEQ: params.SEQ });
   let rows;
   try {
     rows = await queryPromise(SQL);
-    console.log("DB쿼리성공:", rows);
-  } catch (error) {
-    console.log("DB쿼리에러:", error);
-  }
+  } catch (error) {}
   return (
     <div className="p-20">
       <h4>글수정</h4>

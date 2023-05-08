@@ -3,22 +3,23 @@ import queryPromise from "/app/lib/mariadb.js";
 import { selectBoardList } from "/app/sql/nj-board-sql.js";
 import ListItem from "./ListItem";
 
-export const revalidate = 0;
+export const revalidate = 10;
 
 export default async function Home() {
   let SQL = selectBoardList({ BOARD_ID: "NEXT" });
-  let rows;
+  let rows, result;
   try {
     rows = await queryPromise(SQL);
-    console.log("DB쿼리성공:", rows);
+    result = JSON.parse(JSON.stringify(rows));
   } catch (error) {
-    console.log("DB쿼리에러:", error);
     console.error(error);
   }
 
+  //console.log("서버:", result);
+
   return (
     <div className="list-bg">
-      <ListItem rows={rows} />
+      <ListItem rows={result} />
     </div>
   );
 }

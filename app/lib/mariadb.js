@@ -11,8 +11,10 @@ const dbconfig = {
 export default function queryPromise(queryString) {
   return new Promise((resolve, reject) => {
     var db;
+
     function handleDisconnect() {
       db = mysql.createConnection(dbconfig);
+      //console.log("디비연결");
       db.connect(function (err) {
         if (err) {
           setTimeout(handleDisconnect, 2000);
@@ -20,7 +22,7 @@ export default function queryPromise(queryString) {
       });
       db.on("error", function (err) {
         if (err.code === "PROTOCOL_CONNECTION_LOST") {
-          console.log("디비연결종료:PROTOCOL_CONNECTION_LOST->재접속");
+          //console.log("디비연결종료:PROTOCOL_CONNECTION_LOST->재접속");
           handleDisconnect();
         } else {
           throw err;
